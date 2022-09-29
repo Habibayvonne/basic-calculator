@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <title>Calculator</title>
     </head>
     <body>
-        <span id="num1-el"></span>
-        <span id="num2-el"></span>
-        <br>
-        <button onclick="add()">Add</button>
-        <button onclick="subtract()">Subtract</button>
-        <button onclick="divide()">Divide</button>
-        <button onclick="multiply()">Multiply</button>
-        <br>
-        <span id="sum-el">Sum: </span>
+        <div class="calc">
+            <section class="screen">0</section>
+      
+            <section class="calc-buttons">
+              <div class="calc-button-row">
+                <button class="calc-button double">C</button>
+                <button class="calc-button">←</button>
+                <button class="calc-button">÷</button>
+              </div>
+              <div class="calc-button-row">
+                <button class="calc-button">7</button>
+                <button class="calc-button">8</button>
+                <button class="calc-button">9</button>
+                <button class="calc-button">×</button>
+              </div>
+              <div class="calc-button-row">
+                <button class="calc-button">4</button>
+                <button class="calc-button">5</button>
+                <button class="calc-button">6</button>
+                <button class="calc-button">-</button>
+              </div>
+              <div class="calc-button-row">
+                <button class="calc-button">1</button>
+                <button class="calc-button">2</button>
+                <button class="calc-button">3</button>
+                <button class="calc-button">+</button>
+              </div>
+              <div class="calc-button-row">
+                <button class="calc-button triple">0</button>
+                <button class="calc-button">=</button>
+              </div>
+            </section>
         <script src="index.js"></script>
     </body>
 </html>
+
+<!--<button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="divide()">Divide</button>
+        <button onclick="multiply()">Multiply</button>-->
