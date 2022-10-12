@@ -1,7 +1,7 @@
 
 let runningTotal = 0;
 let buffer = "0";
-let previousOperator;
+let previousOperator = null;
 let screen = document.querySelector(".screen");
 
 /*examining what hapens when any button is clicked ion our aplication*/
@@ -16,25 +16,41 @@ function buttonClick(value) {
     }screen.innerText = buffer
 }
 function handleSymbol(symbol){
+    console.log('handleSymbol', symbol)
     switch(symbol){
         case 'C':
         buffer = '0'
         runningTotal = 0
             break;
+        case '=':
+            if(previousOperator === null){
+                return 
+            } 
+            flushOperation(parseInt(buffer))
+            previousOperator = null
+            buffer = runningTotal
+            runningTotal = 0
+            break;
+            /*case '←':
+                if(buffer.length === 1){
+                    buffer = '0'
+                } else {
+                    buffer = buffer.substring(0, buffer.length - 1)
+                }
+                break;*/
         case '+':
         case '÷':
-        case '&times;':
+        case '×':
         case '-':
         handleMath(symbol)
             break;
 }}
 
- function handleMath() {
-    if(buffer ==='0'){
-        return
-    }
+ function handleMath(symbol) {
     const realBuffer = parseInt(buffer)
-    if(runningTotal === 0){
+    if(buffer ==='0'){
+     return 0
+    }else if(runningTotal === 0){
         runningTotal = realBuffer
     }else{
         flushOperation(realBuffer)
@@ -43,8 +59,17 @@ function handleSymbol(symbol){
     buffer = '0'
 }
 
-function flushOperation(realBuffer){
-    
+function flushOperation (realBuffer){
+    console.log(runningTotal)
+    if(previousOperator === '+'){
+        runningTotal += realBuffer
+    } else if (previousOperator === '-'){
+        runningTotal -= realBuffer
+    } else if (previousOperator === '×'){
+        runningTotal *= realBuffer
+    } else {
+        runningTotal /= realBuffer
+    }
     
 }
 
